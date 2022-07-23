@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Domain", "src\Iot.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Infrastructure", "src\Iot.Infrastructure\Iot.Infrastructure.csproj", "{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Domain.Tests", "tests\Iot.Domain.Tests\Iot.Domain.Tests.csproj", "{ACCBC388-B705-47AB-BC14-2C129397C774}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,9 +48,16 @@ Global
 		{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCBC388-B705-47AB-BC14-2C129397C774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCBC388-B705-47AB-BC14-2C129397C774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCBC388-B705-47AB-BC14-2C129397C774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCBC388-B705-47AB-BC14-2C129397C774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ACCBC388-B705-47AB-BC14-2C129397C774} = {89860550-1F2C-49C7-985B-F148615B9144}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03A9263B-7D8A-4211-8EFB-37D39A4F2B83}
