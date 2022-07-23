@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.13.0" />
+		<PackageReference Include="CsvHelper" Version="28.0.1" />
+		<PackageReference Include="Microsoft.Azure.Core.NewtonsoftJson" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Iot.Domain\Iot.Domain.csproj" />
+	  <ProjectReference Include="..\Iot.Infrastructure\Iot.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>
