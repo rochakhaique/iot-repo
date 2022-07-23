@@ -13,9 +13,9 @@ namespace Iot.Domain.Models
             Value = value;
         }
 
-        public string Device { get; set; }
-        public SensorType SensorType { get; set; }
-        public DateTime FullDate { get; set; }
-        public float Value { get; set; }
+        public string Device { get; private set; }
+        public SensorType SensorType { get; private set; }
+        public DateTime FullDate { get; private set; }
+        public float Value { get; private set; }
     }
 }
