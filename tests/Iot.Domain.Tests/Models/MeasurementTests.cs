@@ -1,18 +1,15 @@
 using FluentAssertions;
+using Iot.Base.Test;
 using Iot.Domain.Enums;
 using Iot.Domain.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Iot.Domain.Tests
+namespace Iot.Domain.Tests.Models
 {
     [TestClass]
-    public class MeasurementTests
+    public class MeasurementTests : TestBase
     {
-        private readonly string _deviceName = "MEASUREMENT_DEVICE_NAME";
-        private readonly DateTime _dateTime = new(2022, 07, 23, 21, 30, 0, 0);
-        private readonly float _value = Convert.ToInt64(new Random().NextDouble());
-
         [TestMethod]
         [DataRow(SensorType.humidity)]
         [DataRow(SensorType.rainfall)]
@@ -20,7 +17,7 @@ namespace Iot.Domain.Tests
         public void Contructor(SensorType sensorType)
         {
             // Act
-            Measurement subject = new(_deviceName, sensorType, _dateTime, _value);
+            Measurement subject = new(DeviceName, sensorType, DateTime, Value);
 
             // Assert
             subject.Should().NotBeNull();

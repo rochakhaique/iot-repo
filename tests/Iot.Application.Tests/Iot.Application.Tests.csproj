@@ -8,14 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
-    <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Iot.Domain\Iot.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Iot.Application\Iot.Application.csproj" />
     <ProjectReference Include="..\Iot.Base.Test\Iot.Base.Test.csproj" />
   </ItemGroup>
 
