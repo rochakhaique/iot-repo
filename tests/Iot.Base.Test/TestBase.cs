@@ -2,7 +2,6 @@ using AutoMapper;
 using Iot.Data.Dtos;
 using Iot.Domain.Enums;
 using Iot.Domain.Interfaces;
-using Iot.Domain.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
