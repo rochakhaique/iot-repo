@@ -25,10 +25,10 @@ namespace Iot.Data.Handlers
             try
             {
                 IEnumerable<MeasurementDto> records;
-                using (StreamReader reader = new(content.ToStream()))
+                using (var reader = new StreamReader(content.ToStream()))
                 {
-                    CsvConfiguration csvConfiguration = new(CultureInfo.GetCultureInfo("ru-RU")) { Delimiter = ";", HasHeaderRecord = false };
-                    using CsvReader csv = new(reader, csvConfiguration);
+                    var csvConfiguration = new CsvConfiguration(CultureInfo.GetCultureInfo("ru-RU")) { Delimiter = ";", HasHeaderRecord = false };
+                    using var csv = new CsvReader(reader, csvConfiguration);
                     records = csv.GetRecords<MeasurementDto>().ToList();
                 }
 
