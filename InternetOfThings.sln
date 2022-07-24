@@ -33,6 +33,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\sonar.yml = .github\workflows\sonar.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Application.Tests", "tests\Iot.Application.Tests\Iot.Application.Tests.csproj", "{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Data.Tests", "tests\Iot.Data.Tests\Iot.Data.Tests.csproj", "{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Infrastructure.Tests", "tests\Iot.Infrastructure.Tests\Iot.Infrastructure.Tests.csproj", "{C6B436F7-7D4C-4FE9-AB85-644321C2084E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +71,22 @@ Global
 		{ACCBC388-B705-47AB-BC14-2C129397C774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCBC388-B705-47AB-BC14-2C129397C774}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCBC388-B705-47AB-BC14-2C129397C774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B436F7-7D4C-4FE9-AB85-644321C2084E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B436F7-7D4C-4FE9-AB85-644321C2084E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B436F7-7D4C-4FE9-AB85-644321C2084E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B436F7-7D4C-4FE9-AB85-644321C2084E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAFBC554-7EFD-41A0-841C-3216A910D48B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAFBC554-7EFD-41A0-841C-3216A910D48B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAFBC554-7EFD-41A0-841C-3216A910D48B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAFBC554-7EFD-41A0-841C-3216A910D48B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +95,10 @@ Global
 		{ACCBC388-B705-47AB-BC14-2C129397C774} = {89860550-1F2C-49C7-985B-F148615B9144}
 		{113A6465-053B-4C42-8F70-5B9764BE34E6} = {58CFD583-2202-45F2-A978-48DF7CEF6148}
 		{D80E1273-568A-464A-B386-736818D28EC1} = {113A6465-053B-4C42-8F70-5B9764BE34E6}
+		{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794} = {89860550-1F2C-49C7-985B-F148615B9144}
+		{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D} = {89860550-1F2C-49C7-985B-F148615B9144}
+		{C6B436F7-7D4C-4FE9-AB85-644321C2084E} = {89860550-1F2C-49C7-985B-F148615B9144}
+		{AAFBC554-7EFD-41A0-841C-3216A910D48B} = {89860550-1F2C-49C7-985B-F148615B9144}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03A9263B-7D8A-4211-8EFB-37D39A4F2B83}
