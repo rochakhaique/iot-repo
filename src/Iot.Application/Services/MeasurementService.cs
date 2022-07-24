@@ -1,12 +1,13 @@
 ﻿using Iot.Application.Interfaces;
 using Iot.Application.Utilities;
+using Iot.Data.Dtos;
 using Iot.Data.Interfaces;
 using Iot.Domain.Enums;
-using Iot.Domain.Models;
+using Iot.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Iot.Application.Services
 {
@@ -21,15 +22,15 @@ namespace Iot.Application.Services
             _measurementDataService = measurementDataService;
         }
 
-        public async Task<IEnumerable<Measurement>> GetAsync(string deviceId, DateTime date, SensorType sensorType)
+        public async Task<IEnumerable<IMeasurement>> GetAsync(string deviceId, DateTime date, SensorType sensorType)
         {
-            var dtos = await _measurementDataService.GetAsync(deviceId, date, sensorType);
-            return dtos.Select(dto => _measurementBuilder.Build(deviceId, sensorType, dto));
+            var dtos = await _measurementDataService.GetAsync(deviceId, date, sensorType);   
+            return dtos.Select(dto => _measurementBuilder.Build(deviceId, sensorType, dto)).ToList();
         }
 
-        public async Task<IEnumerable<Measurement>> GetAllSensorsAsync(string deviceId, DateTime date)
+        public async Task<IEnumerable<IMeasurement>> GetAllSensorsAsync(string deviceId, DateTime date)
         {
-            List<Measurement> measurements = new();
+            var measurements = new List<IMeasurement>();
             foreach (SensorType sensorType in EnumUtil.GetValues<SensorType>())
             {
                 measurements.AddRange(await GetAsync(deviceId, date, sensorType));

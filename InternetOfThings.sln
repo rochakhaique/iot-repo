@@ -33,17 +33,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\sonar.yml = .github\workflows\sonar.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Application.Tests", "tests\Iot.Application.Tests\Iot.Application.Tests.csproj", "{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Application.Tests", "tests\Iot.Application.Tests\Iot.Application.Tests.csproj", "{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Data.Tests", "tests\Iot.Data.Tests\Iot.Data.Tests.csproj", "{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Data.Tests", "tests\Iot.Data.Tests\Iot.Data.Tests.csproj", "{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Infrastructure.Tests", "tests\Iot.Infrastructure.Tests\Iot.Infrastructure.Tests.csproj", "{C6B436F7-7D4C-4FE9-AB85-644321C2084E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Infrastructure.Tests", "tests\Iot.Infrastructure.Tests\Iot.Infrastructure.Tests.csproj", "{C6B436F7-7D4C-4FE9-AB85-644321C2084E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Base.Test", "tests\Iot.Base.Test\Iot.Base.Test.csproj", "{369BD78D-9CFA-4687-A306-AB0C7AB262D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Base.Test", "tests\Iot.Base.Test\Iot.Base.Test.csproj", "{369BD78D-9CFA-4687-A306-AB0C7AB262D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

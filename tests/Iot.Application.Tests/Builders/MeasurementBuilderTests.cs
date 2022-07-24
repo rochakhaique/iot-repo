@@ -3,6 +3,7 @@ using Iot.Application.Builders;
 using Iot.Application.Interfaces;
 using Iot.Base.Test;
 using Iot.Data.Dtos;
+using Iot.Domain.Interfaces;
 using Iot.Domain.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -13,14 +14,14 @@ namespace Iot.Application.Tests.Builders
     public class MeasurementBuilderTests : TestBase
     {
         private IMeasurementBuilder _subject;
-        private Mock<MeasurementDto> _mockMeasurementDto;
+        private Mock<MeasurementDto> _mockDto;
 
         [TestInitialize]
         public override void Setup()
         {
             base.Setup();
 
-            _mockMeasurementDto = MoqRepository.Create<MeasurementDto>();
+            _mockDto = MoqRepository.Create<MeasurementDto>();
 
             _subject = new MeasurementBuilder();
         }
@@ -29,11 +30,11 @@ namespace Iot.Application.Tests.Builders
         public void Build_Succeed()
         {
             // Arrange
-            MeasurementDto mockDto = _mockMeasurementDto.Object;
-            Measurement expected = new(DeviceName, SensorType, mockDto.Date, mockDto.Value);
+            MeasurementDto mockDto = _mockDto.Object;
+            IMeasurement expected = new Measurement(DeviceName, SensorType, mockDto.Date, mockDto.Value);
 
             // Act
-            Measurement actual = _subject.Build(DeviceName, SensorType, _mockMeasurementDto.Object);
+            IMeasurement actual = _subject.Build(DeviceName, SensorType, _mockDto.Object);
 
             // Assert
             actual.Should().NotBeNull();

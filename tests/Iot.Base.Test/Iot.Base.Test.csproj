@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Iot.Data\Iot.Data.csproj" />
     <ProjectReference Include="..\..\src\Iot.Domain\Iot.Domain.csproj" />
   </ItemGroup>
 

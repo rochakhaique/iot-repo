@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Iot.Application.Interfaces;
 using Iot.Domain.Enums;
-using Iot.Domain.Models;
+using Iot.Domain.Interfaces;
 using Iot.WebApi.Mappings.Devices;
 using Iot.WebApi.Responses;
 using Microsoft.AspNetCore.Http;
@@ -50,7 +50,7 @@ namespace Iot.WebApi.Controllers
         {
             try
             {
-                IEnumerable<Measurement> measurements = await _measurementService.GetAsync(deviceId, date, sensorType);
+                IEnumerable<IMeasurement> measurements = await _measurementService.GetAsync(deviceId, date, sensorType);
                 DeviceSingleSensorResponse response = Mapper.Map<DeviceSingleSensorResponse>(measurements);
 
                 return Ok(response);
@@ -83,7 +83,7 @@ namespace Iot.WebApi.Controllers
         {
             try
             {
-                IEnumerable<Measurement> measurements = await _measurementService.GetAllSensorsAsync(deviceId, date);
+                IEnumerable<IMeasurement> measurements = await _measurementService.GetAllSensorsAsync(deviceId, date);
                 DeviceMultipleSensorsResponse response = DeviceMultipleSensorsMappingProfile.Map(deviceId, measurements);
 
                 return Ok(response);

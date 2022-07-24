@@ -1,9 +1,13 @@
 using AutoMapper;
+using Iot.Data.Dtos;
 using Iot.Domain.Enums;
+using Iot.Domain.Interfaces;
+using Iot.Domain.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using System.Collections.Generic;
 
 namespace Iot.Base.Test
 {
@@ -18,17 +22,17 @@ namespace Iot.Base.Test
         protected MockRepository MoqRepository { get; private set; }
         protected Mock<IMapper> MockMapper { get; private set; }
 
-        [TestCleanup]
-        public void TearDown()
-        {
-            MoqRepository?.VerifyAll();
-        }
-
         [TestInitialize]
         public virtual void Setup()
         {
             MoqRepository = new MockRepository(MockBehavior.Default);
             MockMapper = MoqRepository.Create<IMapper>();
+        }
+
+        [TestCleanup]
+        public void TearDown()
+        {
+            MoqRepository?.VerifyAll();
         }
 
         public static Mock<ILogger<T>> BaseSetupAnyLogger<T>()
@@ -45,5 +49,18 @@ namespace Iot.Base.Test
 
             return logger;
         }
+
+        private IEnumerable<T> GetObjects<T>(int n) where T : class
+        {
+            var objects = new List<T>(capacity: 5);
+            for (int i = 0; i < n; i++)
+            {
+                objects.Add(MoqRepository.Create<T>().Object);
+            }
+            return objects;
+        }
+
+        public IEnumerable<IMeasurement> GetMeasurements(int n) => GetObjects<IMeasurement>(n);
+        public IEnumerable<MeasurementDto> GetMeasurementsDtos(int n) => GetObjects<MeasurementDto>(n);
     }
 }

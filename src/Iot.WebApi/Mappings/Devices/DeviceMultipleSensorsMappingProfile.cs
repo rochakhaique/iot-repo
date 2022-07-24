@@ -1,4 +1,5 @@
 ﻿using Iot.Domain.Enums;
+using Iot.Domain.Interfaces;
 using Iot.Domain.Models;
 using Iot.WebApi.Responses;
 using Iot.WebApi.ViewModels;
@@ -9,7 +10,7 @@ namespace Iot.WebApi.Mappings.Devices
 {
     public static class DeviceMultipleSensorsMappingProfile
     {
-        public static DeviceMultipleSensorsResponse Map(string deviceId, IEnumerable<Measurement> measurements)
+        public static DeviceMultipleSensorsResponse Map(string deviceId, IEnumerable<IMeasurement> measurements)
         {
             var sensorsVM = new List<SensorViewModel>();
 

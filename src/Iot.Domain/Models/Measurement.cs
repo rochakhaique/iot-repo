@@ -1,9 +1,10 @@
 ﻿using Iot.Domain.Enums;
+using Iot.Domain.Interfaces;
 using System;
 
 namespace Iot.Domain.Models
 {
-    public class Measurement
+    public class Measurement : IMeasurement
     {
         public Measurement(string device, SensorType sensorType, DateTime fullDate, float value)
         {
