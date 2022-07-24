@@ -8,6 +8,7 @@ using Iot.Domain.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using System.Threading.Tasks;
 
 namespace Iot.Application.Tests.Services
 {
@@ -33,7 +34,7 @@ namespace Iot.Application.Tests.Services
         [DataRow(SensorType.humidity)]
         [DataRow(SensorType.rainfall)]
         [DataRow(SensorType.temperature)]
-        public void GetMeasurements_SingleSensor_Success(SensorType sensorType)
+        public async Task GetMeasurements_SingleSensor_Success(SensorType sensorType)
         {
             // Arrange
             _mockDataService
@@ -50,14 +51,14 @@ namespace Iot.Application.Tests.Services
                 .Returns(MoqRepository.Create<IMeasurement>().Object);
 
             // Act
-            var actual = _subject.GetAsync(DeviceName, DateTime, sensorType);
+            _ = await _subject.GetAsync(DeviceName, DateTime, sensorType);
 
             // Assert
             // TearDown runs VerifyAll()
         }
 
         [TestMethod]
-        public void GetMeasurements_AllSensors_Success()
+        public async Task GetMeasurements_AllSensors_Success()
         {
             // Arrange
             _mockDataService
@@ -74,7 +75,7 @@ namespace Iot.Application.Tests.Services
                 .Returns(MoqRepository.Create<IMeasurement>().Object);
 
             // Act
-            var actual = _subject.GetAllSensorsAsync(DeviceName, DateTime);
+            _ = await _subject.GetAllSensorsAsync(DeviceName, DateTime);
 
             // Assert
             // TearDown runs VerifyAll()
