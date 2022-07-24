@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_root", "_root", "{58CFD583-2202-45F2-A978-48DF7CEF6148}"
 	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
@@ -14,13 +16,30 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.WebApi", "src\Iot.WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Application", "src\Iot.Application\Iot.Application.csproj", "{90A55F79-68C2-4F25-A3EF-99D7E07F2B8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Data", "src\Iot.Data\Iot.Data.csproj", "{77F98CAB-889C-4DA5-9E97-EC8BF13578C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Data", "src\Iot.Data\Iot.Data.csproj", "{77F98CAB-889C-4DA5-9E97-EC8BF13578C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Domain", "src\Iot.Domain\Iot.Domain.csproj", "{47F31B6C-F1E8-43C0-9346-DBFB704FE4D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Domain", "src\Iot.Domain\Iot.Domain.csproj", "{47F31B6C-F1E8-43C0-9346-DBFB704FE4D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Infrastructure", "src\Iot.Infrastructure\Iot.Infrastructure.csproj", "{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Infrastructure", "src\Iot.Infrastructure\Iot.Infrastructure.csproj", "{CE9A07B6-EE60-4BD6-92E1-8EAFFA0A7495}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Domain.Tests", "tests\Iot.Domain.Tests\Iot.Domain.Tests.csproj", "{ACCBC388-B705-47AB-BC14-2C129397C774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Domain.Tests", "tests\Iot.Domain.Tests\Iot.Domain.Tests.csproj", "{ACCBC388-B705-47AB-BC14-2C129397C774}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{113A6465-053B-4C42-8F70-5B9764BE34E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{D80E1273-568A-464A-B386-736818D28EC1}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\sonar.yml = .github\workflows\sonar.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Application.Tests", "tests\Iot.Application.Tests\Iot.Application.Tests.csproj", "{6BDDF4E5-2271-4DB6-9CDE-CD97E2E9F794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Data.Tests", "tests\Iot.Data.Tests\Iot.Data.Tests.csproj", "{01C3CCD3-F6B6-40B0-8E00-356E8E04BF6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.Infrastructure.Tests", "tests\Iot.Infrastructure.Tests\Iot.Infrastructure.Tests.csproj", "{C6B436F7-7D4C-4FE9-AB85-644321C2084E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iot.WebApi.Tests", "tests\Iot.WebApi.Tests\Iot.WebApi.Tests.csproj", "{AAFBC554-7EFD-41A0-841C-3216A910D48B}"
 EndProject
