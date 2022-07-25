@@ -13,4 +13,9 @@
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Iot.WebApi\Iot.WebApi.csproj" />
+    <ProjectReference Include="..\Iot.Base.Test\Iot.Base.Test.csproj" />
+  </ItemGroup>
+
 </Project>

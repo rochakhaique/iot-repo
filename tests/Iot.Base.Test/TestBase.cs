@@ -2,6 +2,8 @@ using AutoMapper;
 using Iot.Data.Dtos;
 using Iot.Domain.Enums;
 using Iot.Domain.Interfaces;
+using Iot.Domain.Models;
+using Iot.WebApi.ViewModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -13,10 +15,12 @@ namespace Iot.Base.Test
     [TestClass]
     public abstract class TestBase
     {
-        protected readonly string DeviceName = "MEASUREMENT_DEVICE_NAME";
+        private readonly Random gen = new Random();
+
+        protected readonly string DeviceName = "DEVICE_NAME";
         protected readonly SensorType SensorType = SensorType.temperature;
         protected readonly DateTime DateTime = new(2022, 07, 23, 21, 30, 0, 0);
-        protected readonly float Value = Convert.ToInt64(new Random().NextDouble());
+        protected readonly float Value = 12.34f;
 
         protected MockRepository MoqRepository { get; private set; }
         protected Mock<IMapper> MockMapper { get; private set; }
@@ -34,12 +38,12 @@ namespace Iot.Base.Test
             MoqRepository?.VerifyAll();
         }
 
-        public static Mock<ILogger<T>> BaseSetupAnyLogger<T>()
+        protected static Mock<ILogger<T>> BaseSetupAnyLogger<T>()
         {
             var logger = new Mock<ILogger<T>>();
 
-            logger
-                .Setup(x => x.Log(
+            logger.Setup(x =>
+                x.Log(
                     It.IsAny<LogLevel>(),
                     It.IsAny<EventId>(),
                     It.IsAny<object>(),
@@ -49,17 +53,18 @@ namespace Iot.Base.Test
             return logger;
         }
 
-        private IEnumerable<T> GetObjects<T>(int n) where T : class
+        protected IEnumerable<IMeasurement> GetMeasurements(int n) => GetObjects(n, createObject: () => new Measurement(DeviceName, SensorType, DateTime, Value));
+        protected IEnumerable<MeasurementDto> GetMeasurementsDtos(int n) => GetObjects(n, createObject: () => new MeasurementDto() { Date = DateTime, Value = Value });
+        protected IEnumerable<MeasurementViewModel> GetMeasurementsVMs(int n) => GetObjects(n, createObject: () => new MeasurementViewModel() { Date = DateTime, Value = Value });
+
+        private IEnumerable<T> GetObjects<T>(int n, Func<T> createObject) where T : class
         {
             var objects = new List<T>(capacity: 5);
             for (int i = 0; i < n; i++)
             {
-                objects.Add(MoqRepository.Create<T>().Object);
+                objects.Add(createObject());
             }
             return objects;
         }
-
-        public IEnumerable<IMeasurement> GetMeasurements(int n) => GetObjects<IMeasurement>(n);
-        public IEnumerable<MeasurementDto> GetMeasurementsDtos(int n) => GetObjects<MeasurementDto>(n);
     }
 }

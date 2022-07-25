@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Iot.Data\Iot.Data.csproj" />
     <ProjectReference Include="..\..\src\Iot.Domain\Iot.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Iot.WebApi\Iot.WebApi.csproj" />
   </ItemGroup>
 
 </Project>
