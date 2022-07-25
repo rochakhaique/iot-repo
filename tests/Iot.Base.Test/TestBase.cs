@@ -15,8 +15,6 @@ namespace Iot.Base.Test
     [TestClass]
     public abstract class TestBase
     {
-        private readonly Random gen = new Random();
-
         protected readonly string DeviceName = "DEVICE_NAME";
         protected readonly SensorType SensorType = SensorType.temperature;
         protected readonly DateTime DateTime = new(2022, 07, 23, 21, 30, 0, 0);
