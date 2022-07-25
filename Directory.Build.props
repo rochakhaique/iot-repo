@@ -2,5 +2,12 @@
 	<PropertyGroup>
 		<LangVersion>preview</LangVersion>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<CodeAnalysisRuleSet>..\..\.sonarlint\rochakhaique_iot-repocsharp.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
+
+	<ItemGroup Label="Common items">
+		<AdditionalFiles Include="..\..\.sonarlint\rochakhaique_iot-repo\CSharp\SonarLint.xml">
+			<Link>Properties\SonarLint.xml</Link>
+		</AdditionalFiles>
+	</ItemGroup>
 </Project>

@@ -1,0 +1,15 @@
+{
+  "ServerUri": "https://sonarcloud.io/",
+  "Organization": {
+    "Key": "rochakhaique",
+    "Name": "Khaique"
+  },
+  "ProjectKey": "rochakhaique_iot-repo",
+  "ProjectName": "iot-repo",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AYIyOOKO13nh0_l_rnTr",
+      "ProfileTimestamp": "2022-07-25T14:58:08Z"
+    }
+  }
+}
