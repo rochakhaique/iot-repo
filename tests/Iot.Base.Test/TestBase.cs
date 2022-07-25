@@ -57,7 +57,7 @@ namespace Iot.Base.Test
 
         private IEnumerable<T> GetObjects<T>(int n, Func<T> createObject) where T : class
         {
-            var objects = new List<T>(capacity: 5);
+            var objects = new List<T>(capacity: n);
             for (int i = 0; i < n; i++)
             {
                 objects.Add(createObject());
