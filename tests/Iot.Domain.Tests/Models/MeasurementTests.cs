@@ -17,10 +17,10 @@ namespace Iot.Domain.Tests.Models
         public void Contructor(SensorType sensorType)
         {
             // Act
-            IMeasurement subject = new Measurement(DeviceName, sensorType, DateTime, Value);
+            IMeasurement sut = new Measurement(DeviceName, sensorType, DateTime, Value);
 
             // Assert
-            subject.Should().NotBeNull();
+            sut.Should().NotBeNull();
         }
     }
 }

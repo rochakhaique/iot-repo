@@ -15,7 +15,7 @@ namespace Iot.Application.Tests.Services
     [TestClass]
     public class MeasurementServiceTests : TestBase
     {
-        private IMeasurementService _subject;
+        private IMeasurementService _sut;
         private Mock<IMeasurementDataService> _mockDataService;
         private Mock<IMeasurementBuilder> _mockBuilder;
 
@@ -27,7 +27,7 @@ namespace Iot.Application.Tests.Services
             _mockDataService = MoqRepository.Create<IMeasurementDataService>();
             _mockBuilder = MoqRepository.Create<IMeasurementBuilder>();
 
-            _subject = new MeasurementService(_mockBuilder.Object, _mockDataService.Object);
+            _sut = new MeasurementService(_mockBuilder.Object, _mockDataService.Object);
         }
 
         [TestMethod]
@@ -37,30 +37,30 @@ namespace Iot.Application.Tests.Services
         public async Task GetMeasurements_SingleSensor_Success(SensorType sensorType)
         {
             // Arrange
-            _mockDataService
-                .Setup(ds => ds.GetAsync(
-                    It.IsAny<string>(),
-                    It.IsAny<DateTime>(),
-                    It.IsAny<SensorType>()))
-                .ReturnsAsync(GetMeasurementsDtos(5));
-            _mockBuilder
-                .Setup(b => b.Build(
-                    It.IsAny<string>(),
-                    It.IsAny<SensorType>(),
-                    It.IsAny<MeasurementDto>()))
-                .Returns(MoqRepository.Create<IMeasurement>().Object);
+            MockGetAsync();
 
             // Act
-            _ = await _subject.GetAsync(DeviceName, DateTime, sensorType);
+            _ = await _sut.GetAsync(DeviceName, DateTime, sensorType);
 
             // Assert
-            // TearDown runs VerifyAll()
+            // TestBase.TearDown() runs VerifyAll()
         }
 
         [TestMethod]
         public async Task GetMeasurements_AllSensors_Success()
         {
             // Arrange
+            MockGetAsync();
+
+            // Act
+            _ = await _sut.GetAllSensorsAsync(DeviceName, DateTime);
+
+            // Assert
+            // TestBase.TearDown() runs VerifyAll()
+        }
+
+        private void MockGetAsync()
+        {
             _mockDataService
                 .Setup(ds => ds.GetAsync(
                     It.IsAny<string>(),
@@ -73,12 +73,6 @@ namespace Iot.Application.Tests.Services
                     It.IsAny<SensorType>(),
                     It.IsAny<MeasurementDto>()))
                 .Returns(MoqRepository.Create<IMeasurement>().Object);
-
-            // Act
-            _ = await _subject.GetAllSensorsAsync(DeviceName, DateTime);
-
-            // Assert
-            // TearDown runs VerifyAll()
         }
     }
 }

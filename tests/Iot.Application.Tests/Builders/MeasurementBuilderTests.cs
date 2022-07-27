@@ -13,7 +13,7 @@ namespace Iot.Application.Tests.Builders
     [TestClass]
     public class MeasurementBuilderTests : TestBase
     {
-        private IMeasurementBuilder _subject;
+        private IMeasurementBuilder _sut;
         private Mock<MeasurementDto> _mockDto;
 
         [TestInitialize]
@@ -23,7 +23,7 @@ namespace Iot.Application.Tests.Builders
 
             _mockDto = MoqRepository.Create<MeasurementDto>();
 
-            _subject = new MeasurementBuilder();
+            _sut = new MeasurementBuilder();
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Iot.Application.Tests.Builders
             IMeasurement expected = new Measurement(DeviceName, SensorType, mockDto.Date, mockDto.Value);
 
             // Act
-            IMeasurement actual = _subject.Build(DeviceName, SensorType, _mockDto.Object);
+            IMeasurement actual = _sut.Build(DeviceName, SensorType, _mockDto.Object);
 
             // Assert
             actual.Should().NotBeNull();
