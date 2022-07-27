@@ -12,7 +12,6 @@ using System.Collections.Generic;
 
 namespace Iot.Base.Test
 {
-    [TestClass]
     public abstract class TestBase
     {
         protected readonly string DeviceName = "DEVICE_NAME";
