@@ -1,12 +1,4 @@
-using Iot.Application.Builders;
-using Iot.Application.Interfaces;
-using Iot.Application.Services;
-using Iot.Data.Handlers;
-using Iot.Data.Interfaces;
-using Iot.Data.Repositories;
-using Iot.Data.Services;
-using Iot.Infrastructure.Configs;
-using Iot.Infrastructure.Factories;
+using Iot.WebApi.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -68,22 +60,9 @@ namespace Iot.WebApi
                 };
             });
 
-            #region [ Application ]
-            services.AddSingleton<IMeasurementBuilder, MeasurementBuilder>();
-            services.AddSingleton<IMeasurementService, MeasurementService>();
-            #endregion
-
-            #region [ Data ]
-            services.AddSingleton<IMeasurementContentHandler, MeasurementContentHandler>();
-            services.AddSingleton<IMeasurementDataService, MeasurementDataService>();
-            services.AddSingleton<IMeasurementRepository, MeasurementRepository>();
-            #endregion
-
-            #region [ Infrastructure ]
-            services.Configure<StorageAccountConfig>(Configuration.GetSection(StorageAccountConfig.SectionName));
-            services.AddSingleton<StorageAccountConfig>();
-            services.AddSingleton<StorageAccountFactory>();
-            #endregion
+            services.ConfigureIotApplicationServices();
+            services.ConfigureIotDataServices(Configuration);
+            services.ConfigureIotInfrastructureServices(Configuration);
 
             services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 

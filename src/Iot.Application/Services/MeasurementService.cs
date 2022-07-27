@@ -1,13 +1,12 @@
 ﻿using Iot.Application.Interfaces;
 using Iot.Application.Utilities;
-using Iot.Data.Dtos;
 using Iot.Data.Interfaces;
 using Iot.Domain.Enums;
 using Iot.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Iot.Application.Services
 {
@@ -24,7 +23,7 @@ namespace Iot.Application.Services
 
         public async Task<IEnumerable<IMeasurement>> GetAsync(string deviceId, DateTime date, SensorType sensorType)
         {
-            var dtos = await _measurementDataService.GetAsync(deviceId, date, sensorType);   
+            var dtos = await _measurementDataService.GetAsync(deviceId, date, sensorType);
             return dtos.Select(dto => _measurementBuilder.Build(deviceId, sensorType, dto)).ToList();
         }
 

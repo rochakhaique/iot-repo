@@ -2,7 +2,6 @@
 using Azure.Storage.Blobs;
 using Iot.Infrastructure.Configs;
 using Iot.Infrastructure.Utilities;
-using Microsoft.Extensions.Options;
 using System;
 
 namespace Iot.Infrastructure.Factories
@@ -11,12 +10,10 @@ namespace Iot.Infrastructure.Factories
     {
         public BlobContainerClient BlobContainerClient { get; }
 
-        public StorageAccountFactory(IOptions<StorageAccountConfig> options)
+        public StorageAccountFactory(StorageAccountConfig config)
         {
-            StorageAccountConfig config = options.Value;
-
-            var sasCredential = new AzureSasCredential(config.GetSasToken());
             var blobUri = new Uri(config.GetBlobUri());
+            var sasCredential = new AzureSasCredential(config.GetSasToken());
             var blobServiceClient = new BlobServiceClient(blobUri, sasCredential);
             BlobContainerClient = blobServiceClient.GetBlobContainerClient(config.ContainerName);
         }
