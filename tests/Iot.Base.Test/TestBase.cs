@@ -17,7 +17,7 @@ namespace Iot.Base.Test
         protected readonly string DeviceName = "DEVICE_NAME";
         protected readonly SensorType SensorType = SensorType.temperature;
         protected readonly DateTime DateTime = new(2022, 07, 23, 21, 30, 0, 0);
-        protected readonly float Value = 12.34f;
+        protected readonly decimal Value = 12.34m;
 
         protected MockRepository MoqRepository { get; private set; }
         protected Mock<IMapper> MockMapper { get; private set; }

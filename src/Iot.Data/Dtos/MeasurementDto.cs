@@ -8,6 +8,6 @@ namespace Iot.Data.Dtos
         [Index(0)]
         public DateTime Date { get; set; }
         [Index(1)]
-        public float Value { get; set; }
+        public decimal Value { get; set; }
     }
 }
