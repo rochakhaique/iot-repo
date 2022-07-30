@@ -29,13 +29,13 @@ namespace Iot.Application.Services
 
         public async Task<IEnumerable<IMeasurement>> GetAllSensorsAsync(string deviceId, DateTime date)
         {
-            var measurements = new List<IMeasurement>();
+            var tasks = new List<Task<IEnumerable<IMeasurement>>>();
             foreach (SensorType sensorType in EnumUtil.GetValues<SensorType>())
             {
-                measurements.AddRange(await GetAsync(deviceId, date, sensorType));
+                tasks.Add(GetAsync(deviceId, date, sensorType));
             }
-            return measurements;
-
+            var measurements = await Task.WhenAll(tasks);
+            return measurements.SelectMany(m => m);
         }
     }
 }
