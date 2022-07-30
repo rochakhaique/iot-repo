@@ -6,7 +6,7 @@ namespace Iot.Domain.Models
 {
     public class Measurement : IMeasurement
     {
-        public Measurement(string device, SensorType sensorType, DateTime fullDate, float value)
+        public Measurement(string device, SensorType sensorType, DateTime fullDate, decimal value)
         {
             Device = device;
             SensorType = sensorType;
@@ -17,6 +17,6 @@ namespace Iot.Domain.Models
         public string Device { get; private set; }
         public SensorType SensorType { get; private set; }
         public DateTime FullDate { get; private set; }
-        public float Value { get; private set; }
+        public decimal Value { get; private set; }
     }
 }

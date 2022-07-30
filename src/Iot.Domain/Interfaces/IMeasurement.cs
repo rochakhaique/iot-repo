@@ -8,6 +8,6 @@ namespace Iot.Domain.Interfaces
         string Device { get; }
         SensorType SensorType { get; }
         DateTime FullDate { get; }
-        float Value { get; }
+        decimal Value { get; }
     }
 }
