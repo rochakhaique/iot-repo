@@ -25,7 +25,7 @@ namespace Iot.Data.Repositories
         {
             try
             {
-                string blobName = $"{deviceId}/{sensorType}/{date.ToShortDateString()}.csv";
+                string blobName = $"{deviceId}/{sensorType}/{date:d}.csv";
                 BlobClient blobClient = _storageAccountFactory.BlobContainerClient.GetBlobClient(blobName);
                 Response<BlobDownloadResult> response = await blobClient.DownloadContentAsync();
 
