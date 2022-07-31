@@ -3,7 +3,7 @@ using Iot.Data.Dtos;
 using Iot.Domain.Enums;
 using Iot.Domain.Interfaces;
 using Iot.Domain.Models;
-using Iot.WebApi.ViewModels;
+using Iot.WebApi.Responses;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -52,7 +52,7 @@ namespace Iot.Base.Test
 
         protected IEnumerable<IMeasurement> GetMeasurements(int n) => GetObjects(n, createObject: () => new Measurement(DeviceName, SensorType, DateTime, Value));
         protected IEnumerable<MeasurementDto> GetMeasurementsDtos(int n) => GetObjects(n, createObject: () => new MeasurementDto() { Date = DateTime, Value = Value });
-        protected IEnumerable<MeasurementViewModel> GetMeasurementsVMs(int n) => GetObjects(n, createObject: () => new MeasurementViewModel() { Date = DateTime, Value = Value });
+        protected IEnumerable<MeasurementResponse> GetMeasurementsesponses(int n) => GetObjects(n, createObject: () => new MeasurementResponse() { Date = DateTime, Value = Value });
 
         private IEnumerable<T> GetObjects<T>(int n, Func<T> createObject) where T : class
         {

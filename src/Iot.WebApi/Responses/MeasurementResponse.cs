@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Iot.WebApi.ViewModels
+namespace Iot.WebApi.Responses
 {
-    public class MeasurementViewModel
+    public class MeasurementResponse
     {
         public DateTime Date { get; set; }
         public decimal Value { get; set; }

@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using Iot.Base.Test;
 using Iot.WebApi.Responses;
-using Iot.WebApi.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Iot.WebApi.Tests.Responses
@@ -17,10 +16,10 @@ namespace Iot.WebApi.Tests.Responses
             var response = new DeviceSingleSensorResponse()
             {
                 Device = DeviceName,
-                Sensor = new SensorViewModel()
+                Sensor = new SensorResponse()
                 {
                     SensorType = SensorType,
-                    Measurements = GetMeasurementsVMs(3)
+                    Measurements = GetMeasurementsesponses(3)
                 }
             };
 

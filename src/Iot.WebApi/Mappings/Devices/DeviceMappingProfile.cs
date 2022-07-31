@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Iot.Domain.Interfaces;
-using Iot.WebApi.ViewModels;
+using Iot.WebApi.Responses;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,11 +10,11 @@ namespace Iot.WebApi.Mappings.Devices
     {
         public DeviceBaseMappingProfile()
         {
-            CreateMap<IEnumerable<IMeasurement>, SensorViewModel>()
+            CreateMap<IEnumerable<IMeasurement>, SensorResponse>()
                 .ForMember(dest => dest.SensorType, opt => opt.MapFrom(src => src.FirstOrDefault().SensorType))
                 .ForPath(dest => dest.Measurements, opt => opt.MapFrom(src => src));
 
-            CreateMap<IMeasurement, MeasurementViewModel>()
+            CreateMap<IMeasurement, MeasurementResponse>()
                 .ForMember(d => d.Date, opt => opt.MapFrom(s => s.FullDate))
                 .ForMember(d => d.Value, opt => opt.MapFrom(s => s.Value));
         }
