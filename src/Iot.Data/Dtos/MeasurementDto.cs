@@ -1,9 +1,10 @@
 ﻿using CsvHelper.Configuration.Attributes;
+using Iot.Data.Interfaces;
 using System;
 
 namespace Iot.Data.Dtos
 {
-    public class MeasurementDto
+    public class MeasurementDto : IDto
     {
         [Index(0)]
         public DateTime Date { get; set; }

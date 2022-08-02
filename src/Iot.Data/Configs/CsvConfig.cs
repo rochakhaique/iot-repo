@@ -2,10 +2,8 @@
 
 namespace Iot.Data.Configs
 {
-    public class CsvConfig
+    public abstract class CsvConfig
     {
-        public const string SectionName = "CsvConfig";
-
         [JsonProperty("CultureInfo")]
         public string CultureInfo { get; set; }
         [JsonProperty("Delimiter")]
