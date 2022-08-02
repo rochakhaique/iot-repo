@@ -12,7 +12,7 @@ namespace Iot.WebApi.Extensions
     {
         public static void ConfigureIotDataServices(this IServiceCollection services, IConfiguration configuration)
         {
-            var config = configuration.GetSection(MeasurementContentHandlerConfig.SectionName).Get<MeasurementContentHandlerConfig>();
+            var config = configuration.GetSection(MeasurementCsvConfig.SectionPath).Get<MeasurementCsvConfig>();
             services.AddSingleton(config);
             services.AddSingleton<IMeasurementContentHandler, MeasurementContentHandler>();
             services.AddSingleton<IMeasurementDataService, MeasurementDataService>();

@@ -1,12 +1,7 @@
-﻿using Newtonsoft.Json;
-
-namespace Iot.Data.Configs
+﻿namespace Iot.Data.Configs
 {
-    public class MeasurementContentHandlerConfig
+    public class MeasurementCsvConfig : CsvConfig
     {
-        public const string SectionName = "MeasurementContentHandler";
-
-        [JsonProperty("CsvConfig")]
-        public CsvConfig CsvConfig { get; set; }
+        public const string SectionPath = "CsvConfig:Measurement";
     }
 }
