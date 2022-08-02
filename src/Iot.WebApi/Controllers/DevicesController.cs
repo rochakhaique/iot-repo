@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using Iot.Application.Interfaces;
 using Iot.Domain.Enums;
-using Iot.Domain.Interfaces;
 using Iot.WebApi.Mappings.Devices;
 using Iot.WebApi.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Iot.WebApi.Controllers
@@ -48,18 +46,9 @@ namespace Iot.WebApi.Controllers
         [Produces("application/json")]
         public async Task<ActionResult> GetAsync([FromRoute] string deviceId, [FromRoute] DateTime date, [FromRoute] SensorType sensorType)
         {
-            try
-            {
-                IEnumerable<IMeasurement> measurements = await _measurementService.GetAsync(deviceId, date, sensorType);
-                DeviceSingleSensorResponse response = Mapper.Map<DeviceSingleSensorResponse>(measurements);
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Error trying to get measurements (SingleSensor). [ {DeviceId}, {Date}, {SensorType} ]", deviceId, date, sensorType);
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+            var measurements = await _measurementService.GetAsync(deviceId, date, sensorType);
+            var response = Mapper.Map<DeviceSingleSensorResponse>(measurements);
+            return Ok(response);
         }
 
         /// <summary>
@@ -81,18 +70,9 @@ namespace Iot.WebApi.Controllers
         [Produces("application/json")]
         public async Task<ActionResult> GetAsync([FromRoute] string deviceId, [FromRoute] DateTime date)
         {
-            try
-            {
-                IEnumerable<IMeasurement> measurements = await _measurementService.GetAllSensorsAsync(deviceId, date);
-                DeviceMultipleSensorsResponse response = DeviceMultipleSensorsMappingProfile.Map(deviceId, measurements);
-
-                return Ok(response);
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Error trying to get measurements (MultipleSensors). [ {DeviceId}, {Date} ]", deviceId, date);
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+            var measurements = await _measurementService.GetAllSensorsAsync(deviceId, date);
+            var response = DeviceMultipleSensorsMappingProfile.Map(deviceId, measurements);
+            return Ok(response);
         }
     }
 }
