@@ -20,10 +20,11 @@ namespace Iot.Data.Services
 
         public async Task<IEnumerable<MeasurementDto>> GetAsync(string deviceId, DateTime date, SensorType sensorType)
         {
-            BinaryData content = await _measurementRepository.GetContentAsync(deviceId, date, sensorType);
-            IEnumerable<MeasurementDto> records = _measurementContentHandler.Handle(content);
+            var blobName = $"{deviceId}/{sensorType}/{date:d}.csv";
+            var contentBinaryData = await _measurementRepository.GetContentAsync(blobName);
+            var dtos = _measurementContentHandler.Handle(contentBinaryData);
 
-            return records;
+            return dtos;
         }
     }
 }

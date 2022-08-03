@@ -6,6 +6,6 @@ namespace Iot.Data.Interfaces
 {
     public interface IMeasurementRepository
     {
-        Task<BinaryData> GetContentAsync(string deviceId, DateTime date, SensorType sensorType);
+        Task<BinaryData> GetContentAsync(string blobName);
     }
 }

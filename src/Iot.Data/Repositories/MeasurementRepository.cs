@@ -2,7 +2,6 @@
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Iot.Data.Interfaces;
-using Iot.Domain.Enums;
 using Iot.Infrastructure.Factories;
 using Microsoft.Extensions.Logging;
 using System;
@@ -21,11 +20,10 @@ namespace Iot.Data.Repositories
             _storageAccountFactory = storageAccountFactory;
         }
 
-        public async Task<BinaryData> GetContentAsync(string deviceId, DateTime date, SensorType sensorType)
+        public async Task<BinaryData> GetContentAsync(string blobName)
         {
             try
             {
-                string blobName = $"{deviceId}/{sensorType}/{date:d}.csv";
                 BlobClient blobClient = _storageAccountFactory.BlobContainerClient.GetBlobClient(blobName);
                 Response<BlobDownloadResult> response = await blobClient.DownloadContentAsync();
 
@@ -33,7 +31,7 @@ namespace Iot.Data.Repositories
             }
             catch (RequestFailedException ex)
             {
-                _logger.LogError(ex, "Error on BlobClient request. [ {DeviceId}, {Date}, {SensorType} ]", deviceId, date, sensorType);
+                _logger.LogError(ex, "Error on BlobClient request. [ {BlobName} ]", blobName);
                 throw;
             }
         }
